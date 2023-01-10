@@ -1,16 +1,16 @@
 export default class Ship {
-  constructor(x, y, length) {
+  constructor(coords, length) {
     this.length = length;
     this.hitNum = 0;
-    this.startCoord = [x, y];
+    this.startCoord = coords;
     this.coordsArr = this.calculateCoords();
   }
 
   calculateCoords() {
     // eslint-disable-next-line no-plusplus
     this.coordsArr = [];
-    for (let i = 0; i < Ship.length; i++) {
-      this.coordsArr.push([this.startCoord[0], this.startCoord[1] + i]);
+    for (let i = 0; i <= Ship.length; i++) {
+      this.coordsArr.push(this.startCoord + i);
     }
     return this.coordsArr;
   }
