@@ -2,10 +2,27 @@ import Ship from './ship';
 
 export default class GameBoard {
   constructor() {
-    this.shipObjsArr = [];
+    this.shipObjArr = [];
+    this.hitCoordsArr = [];
+    this.missedCoordsArr = [];
   }
 
-  placeShip(x, y, length) {
-    this.shipObjsArr.push(new Ship(x, y, length));
+  placeShip(coords, length) {
+    this.shipObjArr.push(new Ship(coords, length));
+  }
+
+  receiveAttack(attackedCoords) {
+    this.shipObjArr.forEach((ship) => {
+      if (ship.coordsArr.some((coords) => coords === attackedCoords)) {
+        ship.hit();
+        this.hitCoordsArr.push(attackedCoords);
+      } else {
+        this.missedCoordsArr.push(attackedCoords);
+      }
+    });
+  }
+
+  checkIfAllSunk() {
+    return this.shipObjArr.every((ship) => ship.isSunk() === true);
   }
 }
