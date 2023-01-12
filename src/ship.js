@@ -1,4 +1,4 @@
-export default class Ship {
+  export default class Ship {
   constructor(startCoords, length) {
     this.length = length;
     this.hitNum = 0;
