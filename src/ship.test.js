@@ -13,7 +13,7 @@ it('property hitNum is set 0', () => {
 
 it('takes x y parameters for the start point coords', () => {
   const ship = new Ship(23, 5);
-  expect(ship.startCoord).toEqual(23);
+  expect(ship.startCoords).toEqual(23);
 });
 
 it('stores all coordinates in the coordsArr', () => {
