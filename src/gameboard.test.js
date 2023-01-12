@@ -13,7 +13,7 @@ it('placeShip() method will add Ship instances to shipObjsArr', () => {
     {
       length: 3,
       hitNum: 0,
-      startCoord: 23,
+      startCoords: 23,
       coordsArr: [23, 24, 25],
     },
   ]);
@@ -27,13 +27,13 @@ it('placeShip() method will add multiple Ship instances to shipObjsArr', () => {
     {
       length: 3,
       hitNum: 0,
-      startCoord: 23,
+      startCoords: 23,
       coordsArr: [23, 24, 25],
     },
     {
       length: 3,
       hitNum: 0,
-      startCoord: 67,
+      startCoords: 67,
       coordsArr: [67, 68, 69],
     },
   ]);
