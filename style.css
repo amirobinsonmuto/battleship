@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  gap: 10vw;
+}
+
+#player-gameboard,
+#com-gameboard {
+  width: 40vw;
+  height: 40vw;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(187, 187, 187);
+  transition: background-color 0.5s ease-in-out;
+}
+
+#player-gameboard {
+  pointer-events: none;
+}
+
+.being-attacked .divCell:not(.hit, .missed, .sunk) {
+  background-color: #fff;
+  transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.being-attacked .divCell:not(.hit, .missed, .sunk):hover {
+  background-color: bisque;
+}
+
+.divRow {
+  flex: 1;
+  display: flex;
+}
+
+.divCell {
+  flex: 1;
+  border: 1px solid #000;
+}
+
+.missed {
+  background-color: aqua;
+  cursor: not-allowed;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.hit {
+  background-color: rgb(255, 0, 30);
+  cursor: not-allowed;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.sunk {
+  background-color: rgb(40, 1, 5);
+  cursor: not-allowed;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.ship {
+  box-shadow: inset 0px 0px 0px 10px rgb(10, 40, 56);
+  transition: background-color 0.5s ease-in-out;
+}
