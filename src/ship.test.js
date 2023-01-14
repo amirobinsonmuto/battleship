@@ -22,6 +22,16 @@ it('stores all coordinates in the coordsArr', () => {
 });
 
 it('stores all coordinates in the coordsArr', () => {
+  const ship = new Ship(23, 4);
+  expect(ship.coordsArr).toEqual([23, 24, 25, 26]);
+});
+
+it('stores all coordinates in the coordsArr', () => {
+  const ship = new Ship(21, 5);
+  expect(ship.coordsArr).toEqual([21, 22, 23, 24, 25]);
+});
+
+it('stores all coordinates in the coordsArr', () => {
   const ship = new Ship(42, 3);
   expect(ship.coordsArr).toEqual([42, 43, 44]);
 });

@@ -57,6 +57,15 @@ it('when hitCoords matches one of the coords in a ship object, record the coords
   expect(gameBoard.hitCoordsArr[0]).toBe(68);
 });
 
+it('when hitCoords matches one of the coords in a ship object, record the coords and push it to hitCoordsArr', () => {
+  const gameBoard = new GameBoard();
+  gameBoard.placeShip(23, 3);
+  gameBoard.placeShip(67, 3);
+  gameBoard.placeShip(52, 3);
+  gameBoard.receiveAttack(52);
+  expect(gameBoard.hitCoordsArr[0]).toBe(52);
+});
+
 it('when hitCoords does not matche one of the coords in a ship object, record the coords and push it to missedCoordsArr', () => {
   const gameBoard = new GameBoard();
   gameBoard.placeShip(23, 3);

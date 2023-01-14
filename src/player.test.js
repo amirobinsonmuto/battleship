@@ -43,3 +43,5 @@ it('when a com picks coords to attack, store it in the coordsAlreayAttackedArr',
   playerCom.computerAttack();
   expect(playerCom.coordsAlreadyAttackedArr).toEqual([55, 55, 55]);
 });
+
+

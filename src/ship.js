@@ -1,4 +1,4 @@
-  export default class Ship {
+export default class Ship {
   constructor(startCoords, length) {
     this.length = length;
     this.hitNum = 0;
@@ -8,11 +8,11 @@
 
   calculateCoords() {
     // eslint-disable-next-line no-plusplus
-    this.coordsArr = [];
-    for (let i = 0; i <= Ship.length; i++) {
-      this.coordsArr.push(this.startCoords + i);
+    const coordsArr1 = [];
+    for (let i = 0; i < this.length; i++) {
+      coordsArr1.push(this.startCoords + i);
     }
-    return this.coordsArr;
+    return coordsArr1;
   }
 
   hit() {

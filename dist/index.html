@@ -5,8 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battleship</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <p>Battleship</p>
+    </header>
+    <main>
+      <div class="player-side">
+        <h3>Player</h3>
+        <div id="player-gameboard"></div>
+      </div>
+
+      <div class="com-side">
+        <h3>Computer</h3>
+        <div id="com-gameboard" class="being-attacked"></div>
+      </div>
+    </main>
+  </body>
 </html>

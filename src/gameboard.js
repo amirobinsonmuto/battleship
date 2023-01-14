@@ -16,10 +16,11 @@ export default class GameBoard {
       if (ship.coordsArr.some((coords) => coords === attackedCoords)) {
         ship.hit();
         this.hitCoordsArr.push(attackedCoords);
-      } else {
-        this.missedCoordsArr.push(attackedCoords);
       }
     });
+    if (!this.hitCoordsArr.some((coords) => coords === attackedCoords)) {
+      this.missedCoordsArr.push(attackedCoords);
+    }
   }
 
   checkIfAllSunk() {

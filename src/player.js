@@ -8,14 +8,13 @@ export default class Player {
     this.coordsAlreadyAttackedArr = [];
   }
 
-  switchPlayer() {
-    this.isPlaying = !this.isPlaying;
-  }
+  // switchPlayer() {
+  //   this.isPlaying = !this.isPlaying;
+  // }
 
   // eslint-disable-next-line class-methods-use-this
   playerAttack(pickedCoords) {
     this.coordsAlreadyAttackedArr.push(pickedCoords);
-    return pickedCoords;
   }
 
   // eslint-disable-next-line class-methods-use-this
