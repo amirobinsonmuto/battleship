@@ -5,6 +5,7 @@ import {
   displayHitOrMiss,
   switchUserUI,
   displayShip,
+  displayWinner,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
@@ -31,12 +32,12 @@ export default function gameLoop() {
   divCells.forEach((cell) => {
     cell.addEventListener('click', () => {
       const coords = parseInt(cell.getAttribute('data'));
-      // if (playerA.isPlaying) {
       playerA.playerAttack(coords);
       comGameBoard.receiveAttack(coords);
-      console.log(comGameBoard.checkIfAllSunk());
-      // playerA.switchPlayer();
-      // playerCom.switchPlayer();
+      if (comGameBoard.checkIfAllSunk()) {
+        console.log('player wins');
+        displayWinner('Player A');
+      }
       displayHitOrMiss(comGameBoard, 'com');
       setTimeout(() => {
         switchUserUI(playerGameboardDOM, comGameboardDOM);
@@ -46,9 +47,9 @@ export default function gameLoop() {
       setTimeout(() => {
         const attackedCoords = playerCom.computerAttack();
         playerGameBoard.receiveAttack(attackedCoords);
-        console.log(playerGameBoard.checkIfAllSunk());
-        // playerA.switchPlayer();
-        // playerCom.switchPlayer();
+        if (playerGameBoard.checkIfAllSunk()) {
+          displayWinner('Computer');
+        }
         displayHitOrMiss(playerGameBoard, 'player');
         setTimeout(() => {
           switchUserUI(playerGameboardDOM, comGameboardDOM);

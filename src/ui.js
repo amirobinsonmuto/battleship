@@ -1,6 +1,7 @@
 const playerGameboardDOM = document.getElementById('player-gameboard');
 const comGameboardDOM = document.getElementById('com-gameboard');
 let divCells;
+const modal = document.getElementById('modal');
 
 function generateUI() {
   for (let i = 0; i <= 9; i++) {
@@ -69,11 +70,19 @@ function displayShip(obj) {
   });
 }
 
+function displayWinner(winnerName) {
+  const winnerNameP = document.createElement('p');
+  winnerNameP.textContent = `${winnerName} wins!`;
+  modal.appendChild(winnerNameP);
+  modal.classList.remove('hidden');
+}
+
 export {
   generateUI,
   displayHitOrMiss,
   switchUserUI,
   displayShip,
+  displayWinner,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
