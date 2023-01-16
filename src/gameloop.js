@@ -42,7 +42,6 @@ export default function gameLoop() {
         playerA.playerAttack(coords);
         comGameBoard.receiveAttack(coords);
         if (comGameBoard.checkIfAllSunk()) {
-          console.log('player wins');
           displayWinner('Player A');
         }
         displayHitOrMiss(comGameBoard, 'com');
