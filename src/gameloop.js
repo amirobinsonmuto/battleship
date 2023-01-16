@@ -47,7 +47,7 @@ export default function gameLoop() {
         displayHitOrMiss(comGameBoard, 'com');
         setTimeout(() => {
           switchUserUI(playerGameboardDOM, comGameboardDOM);
-        }, 1000);
+        }, 500);
 
         // computer play
         setTimeout(() => {
@@ -59,8 +59,8 @@ export default function gameLoop() {
           displayHitOrMiss(playerGameBoard, 'player');
           setTimeout(() => {
             switchUserUI(playerGameboardDOM, comGameboardDOM);
-          }, 1000);
-        }, 2000);
+          }, 500);
+        }, 1500);
         // }
       });
     });
