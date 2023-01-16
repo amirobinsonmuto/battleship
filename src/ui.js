@@ -2,6 +2,7 @@ const playerGameboardDOM = document.getElementById('player-gameboard');
 const comGameboardDOM = document.getElementById('com-gameboard');
 let divCells;
 const modal = document.getElementById('modal');
+const startBtn = document.getElementById('start-btn');
 
 function generateUI() {
   for (let i = 0; i <= 9; i++) {
@@ -77,13 +78,26 @@ function displayWinner(winnerName) {
   modal.classList.remove('hidden');
 }
 
+function hideModal() {
+  modal.classList.add('hidden');
+}
+
+function removeChild(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+}
+
 export {
   generateUI,
   displayHitOrMiss,
   switchUserUI,
   displayShip,
   displayWinner,
+  removeChild,
+  hideModal,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
+  startBtn,
 };
