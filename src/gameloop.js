@@ -4,10 +4,10 @@ import {
   generateUI,
   displayHitOrMiss,
   switchUserUI,
-  displayShip,
   displayWinner,
   removeChild,
   hideModal,
+  activateDragDrop,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
@@ -16,21 +16,22 @@ import {
 
 export default function gameLoop() {
   function startGame() {
+    // prepare the initial UI
     hideModal();
     removeChild(playerGameboardDOM);
     removeChild(comGameboardDOM);
     generateUI();
 
+    // create new objects
     const playerGameBoard = new GameBoard();
     const comGameBoard = new GameBoard();
     const playerA = new Player('A', false, true);
     const playerCom = new Player('Com', true, false);
 
-    // playerGameBoard.placeShip(23, 5);
+    activateDragDrop(playerGameBoard);
+
     // playerGameBoard.placeShip(51, 3);
     // playerGameBoard.placeShip(74, 2);
-
-    displayShip(playerGameBoard);
 
     comGameBoard.placeShip(21, 5);
     comGameBoard.placeShip(31, 4);
