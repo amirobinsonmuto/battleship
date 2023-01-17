@@ -26,15 +26,17 @@ export default function gameLoop() {
     const playerA = new Player('A', false, true);
     const playerCom = new Player('Com', true, false);
 
-    playerGameBoard.placeShip(23, 5);
-    playerGameBoard.placeShip(51, 3);
-    playerGameBoard.placeShip(74, 2);
+    // playerGameBoard.placeShip(23, 5);
+    // playerGameBoard.placeShip(51, 3);
+    // playerGameBoard.placeShip(74, 2);
 
     displayShip(playerGameBoard);
 
     comGameBoard.placeShip(21, 5);
+    comGameBoard.placeShip(31, 4);
     comGameBoard.placeShip(42, 3);
     comGameBoard.placeShip(84, 2);
+    comGameBoard.placeShip(55, 1);
 
     divCells.forEach((cell) => {
       cell.addEventListener('click', () => {
