@@ -1,5 +1,6 @@
 const playerGameboardDOM = document.getElementById('player-gameboard');
 const comGameboardDOM = document.getElementById('com-gameboard');
+const shipPlacementDOM = document.getElementById('ship-placement-container');
 let divCells;
 const modal = document.getElementById('modal');
 const startBtn = document.getElementById('start-btn');
