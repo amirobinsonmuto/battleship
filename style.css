@@ -30,9 +30,9 @@ main {
   transition: background-color 0.5s ease-in-out;
 }
 
-#player-gameboard {
+/* #player-gameboard {
   pointer-events: none;
-}
+} */
 
 .being-attacked .divCell:not(.hit, .missed, .sunk) {
   background-color: #fff;
