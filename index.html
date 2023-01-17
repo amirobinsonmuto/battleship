@@ -12,14 +12,43 @@
     <header>
       <p>Battleship</p>
     </header>
+
+    <div id="modal" class="hidden">
+      <p id="modal-content"></p>
+      <button id="start-btn">Start a new game</button>
+    </div>
+
     <main>
-      <div id="modal" class="hidden">
-        <p id="modal-content"></p>
-        <button id="start-btn">Start a new game</button>
-      </div>
       <div class="player-side">
         <h3>Player</h3>
         <div id="player-gameboard"></div>
+        <div id="ship-placement-container">
+          <div class="ship-to-place" draggable="true">
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+          </div>
+          <div class="ship-to-place" draggable="true">
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+          </div>
+          <div class="ship-to-place" draggable="true">
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+          </div>
+          <div class="ship-to-place" draggable="true">
+            <div class="divCell"></div>
+            <div class="divCell"></div>
+          </div>
+          <div class="ship-to-place" draggable="true">
+            <div class="divCell"></div>
+          </div>
+        </div>
       </div>
 
       <div class="com-side">
