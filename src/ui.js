@@ -1,6 +1,6 @@
 const playerGameboardDOM = document.getElementById('player-gameboard');
 const comGameboardDOM = document.getElementById('com-gameboard');
-const shipPlacementDOM = document.getElementById('ship-placement-container');
+// const shipPlacementDOM = document.getElementById('ship-placement-container');
 const shipsToPlace = document.querySelectorAll('.ship-to-place');
 let divCells;
 const modal = document.getElementById('modal');
@@ -101,16 +101,28 @@ function displayPlacedShips(obj) {
 // drag and drop
 function activateDragDrop(boardObj) {
   let shipLength;
+  let droppable;
 
   // draggable elements
-  [...shipsToPlace].forEach((shipToPlace) => {
+  const shipsToPlaceArr = [...shipsToPlace];
+  shipsToPlaceArr.forEach((shipToPlace) => {
     shipToPlace.addEventListener('dragstart', () => {
-      console.log('dragging started');
       shipLength = shipToPlace.getAttribute('data-length');
     });
     shipToPlace.addEventListener('dragend', () => {
-      shipToPlace.classList.add('hidden');
+      if (droppable) {
+        shipToPlace.classList.add('hidden');
+      }
     });
+  });
+
+  // disable drop outside of player board
+  playerGameboardDOM.addEventListener('dragover', () => {
+    droppable = true;
+  });
+
+  playerGameboardDOM.addEventListener('dragleave', () => {
+    droppable = false;
   });
 
   // elements to drop draggable on
@@ -121,7 +133,6 @@ function activateDragDrop(boardObj) {
 
     divCell.addEventListener('drop', (e) => {
       e.preventDefault();
-      console.log('drag dropped');
       const coords = parseInt(divCell.getAttribute('data'));
       const length = parseInt(shipLength);
 
