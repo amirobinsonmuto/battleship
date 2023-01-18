@@ -21,6 +21,18 @@ main {
   display: flex;
 }
 
+.drag-icon {
+  background-image: url(img/draganddrop.png);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: grab;
+}
+
+.no-drag {
+  cursor: not-allowed;
+}
+
 #player-gameboard,
 #com-gameboard {
   width: 300px;
@@ -29,10 +41,6 @@ main {
   background-color: rgb(187, 187, 187);
   transition: background-color 0.5s ease-in-out;
 }
-
-/* #player-gameboard {
-  pointer-events: none;
-} */
 
 .being-attacked .divCell:not(.hit, .missed, .sunk) {
   background-color: #fff;
