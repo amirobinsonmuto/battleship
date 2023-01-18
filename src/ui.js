@@ -89,7 +89,6 @@ function removeChild(el) {
 }
 
 // display placed ships
-
 function displayPlacedShips(obj) {
   obj.shipObjArr.forEach((ship) => {
     ship.coordsArr.forEach((e) => {
@@ -102,6 +101,7 @@ function displayPlacedShips(obj) {
 function activateDragDrop(boardObj) {
   let shipLength;
   let droppable;
+  let isAllShipsPlaced;
 
   // draggable elements
   const shipsToPlaceArr = [...shipsToPlace];
@@ -112,9 +112,18 @@ function activateDragDrop(boardObj) {
     shipToPlace.addEventListener('dragend', () => {
       if (droppable) {
         shipToPlace.classList.add('hidden');
+        if (shipsToPlaceArr.every((el) => el.classList.contains('hidden'))) {
+          comGameboardDOM.classList.remove('hidden');
+        }
       }
     });
   });
+
+  // function checkIfAllShipsPlaced() {
+  //   if (shipsToPlaceArr.every((el) => el.classList.contains('hidden'))) {
+  //     return true;
+  //   }
+  // }
 
   // disable drop outside of player board
   playerGameboardDOM.addEventListener('dragover', () => {
