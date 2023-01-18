@@ -108,6 +108,9 @@ function activateDragDrop(boardObj) {
       console.log('dragging started');
       shipLength = shipToPlace.getAttribute('data-length');
     });
+    shipToPlace.addEventListener('dragend', () => {
+      shipToPlace.classList.add('hidden');
+    });
   });
 
   // elements to drop draggable on
