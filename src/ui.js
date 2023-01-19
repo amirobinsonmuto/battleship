@@ -88,6 +88,7 @@ function displayWinner(winnerName) {
 // hide modal
 function hideModal() {
   modal.classList.add('hidden');
+  modal.removeChild(modal.lastChild);
 }
 
 // helper function to remove all children under an element
