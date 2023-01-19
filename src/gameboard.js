@@ -26,4 +26,10 @@ export default class GameBoard {
   checkIfAllSunk() {
     return this.shipObjArr.every((ship) => ship.isSunk() === true);
   }
+
+  deleteShips() {
+    this.shipObjArr = [];
+    this.hitCoordsArr = [];
+    this.missedCoordsArr = [];
+  }
 }

@@ -97,3 +97,11 @@ it('check if all ships are sunk when attacked and return false if not', () => {
   gameBoard.receiveAttack(81);
   expect(gameBoard.checkIfAllSunk()).toBeFalsy();
 });
+
+it('check if deleteShips() is working or not', () => {
+  const gameBoard = new GameBoard();
+  gameBoard.placeShip(23, 3);
+  gameBoard.placeShip(81, 2);
+  gameBoard.deleteShips();
+  expect(gameBoard.shipObjArr.length).toBe(0);
+});
