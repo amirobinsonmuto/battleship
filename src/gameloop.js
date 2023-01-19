@@ -8,6 +8,7 @@ import {
   removeChild,
   hideModal,
   activateDragDrop,
+  resetShipsToPlace,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
@@ -22,14 +23,18 @@ export default function game() {
   const comGameBoard = new GameBoard();
 
   function startGame() {
-    // prepare the initial UI
+    // reset and prepare the initial UI
     hideModal();
     removeChild(playerGameboardDOM);
     removeChild(comGameboardDOM);
     generateUI();
+    resetShipsToPlace();
+    playerGameBoard.deleteShips();
+    console.log(playerGameBoard);
+    comGameBoard.deleteShips();
 
+    // create Ships
     activateDragDrop(playerGameBoard);
-
     comGameBoard.placeShip(21, 5);
     // comGameBoard.placeShip(31, 4);
     // comGameBoard.placeShip(42, 3);
@@ -52,22 +57,16 @@ export default function game() {
           displayWinner('Player A');
         }
         displayHitOrMiss(comGameBoard, 'com');
-        setTimeout(() => {
-          switchUserUI(playerGameboardDOM, comGameboardDOM);
-        }, 500);
+        switchUserUI(playerGameboardDOM, comGameboardDOM);
 
         // computer play
-        setTimeout(() => {
-          const attackedCoords = playerCom.computerAttack();
-          playerGameBoard.receiveAttack(attackedCoords);
-          if (playerGameBoard.checkIfAllSunk()) {
-            displayWinner('Computer');
-          }
-          displayHitOrMiss(playerGameBoard, 'player');
-          setTimeout(() => {
-            switchUserUI(playerGameboardDOM, comGameboardDOM);
-          }, 500);
-        }, 1500);
+        const attackedCoords = playerCom.computerAttack();
+        playerGameBoard.receiveAttack(attackedCoords);
+        if (playerGameBoard.checkIfAllSunk()) {
+          displayWinner('Computer');
+        }
+        displayHitOrMiss(playerGameBoard, 'player');
+        switchUserUI(playerGameboardDOM, comGameboardDOM);
         // }
       });
     });
