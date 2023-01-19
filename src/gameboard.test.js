@@ -105,3 +105,28 @@ it('check if deleteShips() is working or not', () => {
   gameBoard.deleteShips();
   expect(gameBoard.shipObjArr.length).toBe(0);
 });
+
+it('check if placeShipFromArr() is working or not', () => {
+  const gameBoard = new GameBoard();
+  const arr = [
+    [23, 3],
+    [81, 2],
+  ];
+  gameBoard.placeShipFromArr(arr);
+  expect(gameBoard.shipObjArr.length).toBe(2);
+});
+
+it('check if placeShipFromArr() is working or not', () => {
+  const gameBoard = new GameBoard();
+  const arr = [
+    [23, 3],
+    [81, 2],
+  ];
+  gameBoard.placeShipFromArr(arr);
+  expect(gameBoard.shipObjArr[1]).toEqual({
+    length: 2,
+    hitNum: 0,
+    startCoords: 81,
+    coordsArr: [81, 82],
+  });
+});

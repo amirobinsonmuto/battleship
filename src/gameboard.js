@@ -11,6 +11,12 @@ export default class GameBoard {
     this.shipObjArr.push(new Ship(coords, length));
   }
 
+  placeShipFromArr(arr) {
+    arr.forEach((el) => {
+      this.placeShip(el[0], el[1]);
+    });
+  }
+
   receiveAttack(attackedCoords) {
     this.shipObjArr.forEach((ship) => {
       if (ship.coordsArr.some((coords) => coords === attackedCoords)) {
