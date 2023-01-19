@@ -1,5 +1,6 @@
 import GameBoard from './gameboard';
 import Player from './player';
+import activateDragDrop from './drag-and-drop';
 import {
   generateUI,
   displayHitOrMiss,
@@ -7,7 +8,6 @@ import {
   displayWinner,
   removeChild,
   hideModal,
-  activateDragDrop,
   resetShipsToPlace,
   playerGameboardDOM,
   comGameboardDOM,
@@ -30,7 +30,6 @@ export default function game() {
     generateUI();
     resetShipsToPlace();
     playerGameBoard.deleteShips();
-    console.log(playerGameBoard);
     comGameBoard.deleteShips();
 
     // create Ships
