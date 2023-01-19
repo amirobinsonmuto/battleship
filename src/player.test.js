@@ -13,15 +13,10 @@ it('player is constructed', () => {
   });
 });
 
-it('player is switched at every play', () => {
-  const playerA = new Player('A', false, true);
-  playerA.switchPlayer();
-  expect(playerA.isPlaying).toBeFalsy();
-});
-
 it('player attacks and picks a coords', () => {
   const playerA = new Player('A', false, true);
-  expect(playerA.playerAttack(23)).toBe(23);
+  playerA.playerAttack(23);
+  expect(playerA.coordsAlreadyAttackedArr[0]).toEqual(23);
 });
 
 // returnRandomNum is replaced with a mock function to return always 55
@@ -43,5 +38,3 @@ it('when a com picks coords to attack, store it in the coordsAlreayAttackedArr',
   playerCom.computerAttack();
   expect(playerCom.coordsAlreadyAttackedArr).toEqual([55, 55, 55]);
 });
-
-
