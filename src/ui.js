@@ -4,7 +4,9 @@ const comGameboardDOM = document.getElementById('com-gameboard');
 const shipsToPlace = document.querySelectorAll('.ship-to-place');
 let divCells;
 const modal = document.getElementById('modal');
-const startBtn = document.getElementById('start-btn');
+const startBtn = document.createElement('button');
+const startOverBtn = document.getElementById('start-btn');
+let isAllShipsPlaced;
 
 // generate the initial UI
 function generateUI() {
@@ -97,33 +99,33 @@ function displayPlacedShips(obj) {
   });
 }
 
+function startGameBtn() {
+  startBtn.textContent = 'Start Game';
+  playerGameboardDOM.appendChild(startBtn);
+}
+
 // drag and drop
 function activateDragDrop(boardObj) {
   let shipLength;
   let droppable;
-  let isAllShipsPlaced;
 
   // draggable elements
   const shipsToPlaceArr = [...shipsToPlace];
+
   shipsToPlaceArr.forEach((shipToPlace) => {
     shipToPlace.addEventListener('dragstart', () => {
       shipLength = shipToPlace.getAttribute('data-length');
     });
+
     shipToPlace.addEventListener('dragend', () => {
       if (droppable) {
         shipToPlace.classList.add('hidden');
         if (shipsToPlaceArr.every((el) => el.classList.contains('hidden'))) {
-          comGameboardDOM.classList.remove('hidden');
+          startGameBtn();
         }
       }
     });
   });
-
-  // function checkIfAllShipsPlaced() {
-  //   if (shipsToPlaceArr.every((el) => el.classList.contains('hidden'))) {
-  //     return true;
-  //   }
-  // }
 
   // disable drop outside of player board
   playerGameboardDOM.addEventListener('dragover', () => {
@@ -163,4 +165,6 @@ export {
   comGameboardDOM,
   divCells,
   startBtn,
+  startOverBtn,
+  isAllShipsPlaced,
 };

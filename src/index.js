@@ -1,3 +1,3 @@
-import gameLoop from './gameloop';
+import game from './gameloop';
 
-gameLoop();
+game();

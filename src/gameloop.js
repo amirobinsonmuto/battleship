@@ -12,9 +12,15 @@ import {
   comGameboardDOM,
   divCells,
   startBtn,
+  startOverBtn,
+  isAllShipsPlaced,
 } from './ui';
 
-export default function gameLoop() {
+export default function game() {
+  // create new objects
+  const playerGameBoard = new GameBoard();
+  const comGameBoard = new GameBoard();
+
   function startGame() {
     // prepare the initial UI
     hideModal();
@@ -22,22 +28,20 @@ export default function gameLoop() {
     removeChild(comGameboardDOM);
     generateUI();
 
-    // create new objects
-    const playerGameBoard = new GameBoard();
-    const comGameBoard = new GameBoard();
-    const playerA = new Player('A', false, true);
-    const playerCom = new Player('Com', true, false);
-
     activateDragDrop(playerGameBoard);
 
-    // playerGameBoard.placeShip(51, 3);
-    // playerGameBoard.placeShip(74, 2);
-
     comGameBoard.placeShip(21, 5);
-    comGameBoard.placeShip(31, 4);
-    comGameBoard.placeShip(42, 3);
-    comGameBoard.placeShip(84, 2);
-    comGameBoard.placeShip(55, 1);
+    // comGameBoard.placeShip(31, 4);
+    // comGameBoard.placeShip(42, 3);
+    // comGameBoard.placeShip(84, 2);
+    // comGameBoard.placeShip(55, 1);
+  }
+
+  function gameLoop() {
+    startBtn.classList.add('hidden');
+
+    const playerA = new Player('A', false, true);
+    const playerCom = new Player('Com', true, false);
 
     divCells.forEach((cell) => {
       cell.addEventListener('click', () => {
@@ -68,6 +72,8 @@ export default function gameLoop() {
       });
     });
   }
+
   startGame();
-  startBtn.addEventListener('click', startGame);
+  startBtn.addEventListener('click', gameLoop);
+  startOverBtn.addEventListener('click', startGame);
 }
