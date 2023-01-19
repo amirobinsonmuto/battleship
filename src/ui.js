@@ -115,11 +115,24 @@ function displayStartGameBtn() {
 function activateDragDrop(boardObj) {
   let shipLength;
   let droppable;
+  let preventDropCellIDArr = [];
 
   // draggable elements
   shipsToPlaceArr.forEach((shipToPlace) => {
     shipToPlace.addEventListener('dragstart', () => {
       shipLength = shipToPlace.getAttribute('data-length');
+
+      // prevent drops when the ship length does not fit in a row
+      for (let i = 0; i < shipLength - 1; i++) {
+        let firstDigit = 9 - i;
+        for (let k = 0; k <= 9; k++) {
+          preventDropCellIDArr.push('player' + parseInt(`${k}${firstDigit}`));
+        }
+      }
+
+      preventDropCellIDArr.forEach((id) => {
+        document.getElementById(id).classList.add('prevent-drop');
+      });
     });
 
     shipToPlace.addEventListener('dragend', () => {
@@ -129,6 +142,12 @@ function activateDragDrop(boardObj) {
           displayStartGameBtn();
         }
       }
+
+      // reset - prevent drops when the ship length does not fit in a row
+      preventDropCellIDArr.forEach((id) => {
+        document.getElementById(id).classList.remove('prevent-drop');
+      });
+      preventDropCellIDArr = [];
     });
   });
 
@@ -144,7 +163,9 @@ function activateDragDrop(boardObj) {
   // elements to drop draggable on
   [...divCells].forEach((divCell) => {
     divCell.addEventListener('dragover', (e) => {
-      e.preventDefault();
+      if (!divCell.classList.contains('prevent-drop')) {
+        e.preventDefault();
+      }
     });
 
     divCell.addEventListener('drop', (e) => {
