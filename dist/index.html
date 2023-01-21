@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <p>Battleship</p>
+      <h1>BATTLESHIP</h1>
     </header>
 
     <div id="modal" class="hidden">
@@ -20,9 +20,10 @@
 
     <main>
       <div class="player-side">
-        <h3>Player</h3>
+        <h2>Player</h2>
         <div id="player-gameboard"></div>
         <div id="ship-placement-container">
+          <p>Drag and drop your ships on<br />Player board</p>
           <div class="ship-to-place" draggable="true" data-length="5">
             <div class="divCell drag-icon"></div>
             <div class="divCell no-drag"></div>
@@ -49,11 +50,11 @@
             <div class="divCell drag-icon"></div>
           </div>
         </div>
-        <button id="start-button" class="hidden">Start Game</button>
+        <button id="start-button" class="hidden button-32">Start Game</button>
       </div>
 
       <div class="com-side">
-        <h3>Computer</h3>
+        <h2>Computer</h2>
         <div id="com-gameboard" class="no-click"></div>
       </div>
     </main>
