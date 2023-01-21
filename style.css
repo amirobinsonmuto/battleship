@@ -38,18 +38,7 @@ main {
   width: 300px;
   height: 300px;
   border: 1px solid #000;
-  background-color: rgb(187, 187, 187);
   transition: background-color 0.5s ease-in-out;
-}
-
-.being-attacked .divCell:not(.hit, .missed, .sunk) {
-  background-color: #fff;
-  transition: background-color 0.5s ease-in-out;
-  cursor: pointer;
-}
-
-.being-attacked .divCell:not(.hit, .missed, .sunk):hover {
-  background-color: bisque;
 }
 
 .divRow {
