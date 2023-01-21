@@ -105,6 +105,10 @@ function displayStartGameBtn() {
   startBtn.classList.remove('hidden');
 }
 
+function toggleNoClick(obj) {
+  obj.classList.toggle('no-click');
+}
+
 export {
   generateUI,
   displayHitOrMiss,
@@ -114,6 +118,7 @@ export {
   resetShipsToPlace,
   displayStartGameBtn,
   displayPlacedShips,
+  toggleNoClick,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,

@@ -8,6 +8,7 @@ import {
   removeChild,
   hideModal,
   resetShipsToPlace,
+  toggleNoClick,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
@@ -41,6 +42,8 @@ export default function game() {
   }
 
   function gameLoop() {
+    toggleNoClick(playerGameboardDOM);
+    toggleNoClick(comGameboardDOM);
     startBtn.classList.add('hidden');
 
     const playerA = new Player('A', false, true);
@@ -69,5 +72,9 @@ export default function game() {
 
   startGame();
   startBtn.addEventListener('click', gameLoop);
-  startOverBtn.addEventListener('click', startGame);
+  startOverBtn.addEventListener('click', () => {
+    toggleNoClick(playerGameboardDOM);
+    toggleNoClick(comGameboardDOM);
+    startGame();
+  });
 }
