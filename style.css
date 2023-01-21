@@ -9,6 +9,7 @@ main {
   justify-content: center;
 }
 
+/* before starting a game */
 #ship-placement-container {
   margin-top: 50px;
   width: 300px;
@@ -33,6 +34,11 @@ main {
   cursor: not-allowed;
 }
 
+.no-click {
+  pointer-events: none;
+}
+
+/* after a game starts */
 #player-gameboard,
 #com-gameboard {
   width: 300px;
