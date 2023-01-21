@@ -71,12 +71,6 @@ function displayHitOrMiss(obj, playerOrCom) {
   });
 }
 
-// change UI when a user is switched
-function switchUserUI(obj1, obj2) {
-  playerGameboardDOM.classList.toggle('being-attacked');
-  comGameboardDOM.classList.toggle('being-attacked');
-}
-
 // display the winner in a modal
 function displayWinner(winnerName) {
   const winnerNameP = document.createElement('p');
@@ -111,12 +105,9 @@ function displayStartGameBtn() {
   startBtn.classList.remove('hidden');
 }
 
-
-
 export {
   generateUI,
   displayHitOrMiss,
-  switchUserUI,
   displayWinner,
   removeChild,
   hideModal,

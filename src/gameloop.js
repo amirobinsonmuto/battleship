@@ -4,7 +4,6 @@ import activateDragDrop from './drag-and-drop';
 import {
   generateUI,
   displayHitOrMiss,
-  switchUserUI,
   displayWinner,
   removeChild,
   hideModal,
@@ -56,7 +55,6 @@ export default function game() {
           displayWinner('Player A');
         }
         displayHitOrMiss(comGameBoard, 'com');
-        switchUserUI(playerGameboardDOM, comGameboardDOM);
 
         // computer play
         const attackedCoords = playerCom.computerAttack();
@@ -65,8 +63,6 @@ export default function game() {
           displayWinner('Computer');
         }
         displayHitOrMiss(playerGameBoard, 'player');
-        switchUserUI(playerGameboardDOM, comGameboardDOM);
-        // }
       });
     });
   }
