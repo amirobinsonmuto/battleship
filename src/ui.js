@@ -1,6 +1,8 @@
 const playerGameboardDOM = document.getElementById('player-gameboard');
 const comGameboardDOM = document.getElementById('com-gameboard');
-// const shipPlacementDOM = document.getElementById('ship-placement-container');
+const instructionPlaceShips = document.getElementById(
+  'instruction-place-ships'
+);
 const shipsToPlace = document.querySelectorAll('.ship-to-place');
 const shipsToPlaceArr = [...shipsToPlace];
 let divCells;
@@ -103,6 +105,7 @@ function displayPlacedShips(obj) {
 
 function displayStartGameBtn() {
   startBtn.classList.remove('hidden');
+  instructionPlaceShips.classList.add('hidden');
 }
 
 function toggleNoClick(obj) {
