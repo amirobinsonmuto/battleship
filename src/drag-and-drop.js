@@ -17,13 +17,16 @@ export default function activateDragDrop(boardObj) {
     shipToPlace.addEventListener('dragstart', () => {
       shipLength = shipToPlace.getAttribute('data-length');
 
-      // prevent drops when the ship length does not fit in a row
+      // prevent drop when the ship length does not fit in a row
       for (let i = 0; i < shipLength - 1; i++) {
         let firstDigit = 9 - i;
         for (let k = 0; k <= 9; k++) {
           preventDropCellIDArr.push('player' + parseInt(`${k}${firstDigit}`));
         }
       }
+
+      // // prevent drop when the ship overlaps with no drop zone
+      // if (document.getElementById(id).classList.contains('prevent-drop-surrounding');)
 
       preventDropCellIDArr.forEach((id) => {
         document.getElementById(id).classList.add('prevent-drop');
@@ -72,9 +75,22 @@ export default function activateDragDrop(boardObj) {
       const length = parseInt(shipLength);
 
       boardObj.placeShip(coords, length);
+
       if (Array.from(String(coords + length - 1), Number)[1] === 9) {
-        console.log('this is working');
         for (let i = coords - 1; i < coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i - 10}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else if (Array.from(String(coords), Number)[1] === 0) {
+        console.log('working');
+        for (let i = coords; i <= coords + length; i++) {
           document
             .getElementById(`player${i}`)
             .classList.add('prevent-drop-surrounding');
