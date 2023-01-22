@@ -233,6 +233,11 @@ p {
   height: 30px;
 }
 
+.prevent-drop,
+.prevent-drop-surrounding {
+  background-color: rgb(49, 49, 49);
+}
+
 .ship {
   /* box-shadow: inset 0px 0px 0px 1px rgb(10, 40, 56); */
   background-color: rgb(10, 40, 56);
