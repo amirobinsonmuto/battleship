@@ -233,7 +233,6 @@ p {
   height: 30px;
 }
 
-.prevent-drop,
 .prevent-drop-surrounding {
   background-color: rgb(49, 49, 49);
 }
