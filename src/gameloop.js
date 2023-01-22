@@ -10,6 +10,7 @@ import {
   resetShipsToPlace,
   toggleNoClick,
   removePreventDropClass,
+  hide,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
@@ -46,7 +47,7 @@ export default function game() {
     toggleNoClick(playerGameboardDOM);
     toggleNoClick(comGameboardDOM);
     removePreventDropClass();
-    startBtn.classList.add('hidden');
+    hide(startBtn);
 
     const playerA = new Player('A', false, true);
     const playerCom = new Player('Com', true, false);

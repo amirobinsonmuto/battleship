@@ -121,9 +121,9 @@ function removePreventDropClass() {
   });
 }
 
-// function hide(obj){
-//   obj.classList.add('hidden');
-// }
+function hide(obj) {
+  obj.classList.add('hidden');
+}
 
 export {
   generateUI,
@@ -136,6 +136,7 @@ export {
   displayPlacedShips,
   toggleNoClick,
   removePreventDropClass,
+  hide,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
