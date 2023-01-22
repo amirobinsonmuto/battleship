@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700&family=Titillium+Web:wght@300;400;600&display=swap');
-/* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"); */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -133,18 +132,11 @@ table {
 
 /*-------------------------------------------------------*/
 
-:root {
-  --color-bg-blue: rgba(84, 104, 171, 255);
-  --color-bg-grey: rgba(247, 244, 249, 255);
-  --color-txt-grey: rgba(90, 89, 96, 255);
-  --color-hl-grey: rgba(227, 226, 232, 255);
-}
-
 body {
   background-image: url(./img/background-img.png);
   height: 100vh;
   color: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 * {
@@ -181,6 +173,10 @@ p {
   line-height: 1.2rem;
   width: 100%;
   margin-bottom: 1rem;
+}
+
+#modal-message {
+  font-size: 2rem;
 }
 
 .player-side,
@@ -223,8 +219,6 @@ p {
 #com-gameboard {
   width: 300px;
   height: 300px;
-  border: 0.2px solid #fff;
-  opacity: 0.5;
   transition: background-color 0.5s ease-in-out;
   cursor: pointer;
 }
@@ -234,9 +228,15 @@ p {
 }
 
 .divCell {
-  border: 0.2px solid #fff;
+  border: 0.2px solid rgb(205, 204, 204);
   width: 30px;
   height: 30px;
+}
+
+.ship {
+  /* box-shadow: inset 0px 0px 0px 1px rgb(10, 40, 56); */
+  background-color: rgb(10, 40, 56);
+  transition: background-color 0.5s ease-in-out;
 }
 
 .missed {
@@ -257,20 +257,26 @@ p {
   transition: background-color 0.5s ease-in-out;
 }
 
-.ship {
-  box-shadow: inset 0px 0px 0px 10px rgb(10, 40, 56);
-  transition: background-color 0.5s ease-in-out;
-}
-
 #modal {
   position: fixed;
   left: 50%;
   top: 35%;
   height: 20vw;
+  min-height: 200px;
   width: 30vw;
-  border: 5px solid rebeccapurple;
-  background-color: #fff;
+  min-width: 300px;
+  background-color: rgb(10, 40, 56);
   transform: translate(-50%, -50%);
+  padding: 15px;
+}
+
+#modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
 }
 
 .hidden {
@@ -278,17 +284,17 @@ p {
 }
 
 /* button */
-/* CSS */
 .button-32 {
   background-color: #fff000;
   border-radius: 12px;
   color: #000;
   cursor: pointer;
+  font: inherit;
   font-weight: bold;
   padding: 10px 15px;
   text-align: center;
   transition: 200ms;
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
   border: 0;
   font-size: 16px;

@@ -7,6 +7,8 @@ const shipsToPlace = document.querySelectorAll('.ship-to-place');
 const shipsToPlaceArr = [...shipsToPlace];
 let divCells;
 const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modal-content');
+const modalMessage = document.getElementById('modal-message');
 const startBtn = document.getElementById('start-button');
 const startOverBtn = document.getElementById('start-btn');
 let isAllShipsPlaced;
@@ -75,9 +77,8 @@ function displayHitOrMiss(obj, playerOrCom) {
 
 // display the winner in a modal
 function displayWinner(winnerName) {
-  const winnerNameP = document.createElement('p');
-  winnerNameP.textContent = `${winnerName} wins!`;
-  modal.appendChild(winnerNameP);
+  modalMessage.textContent = `${winnerName} wins!`;
+  modalContent.appendChild(modalMessage);
   modal.classList.remove('hidden');
 }
 
