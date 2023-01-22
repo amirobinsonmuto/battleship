@@ -72,9 +72,5 @@ export default function game() {
 
   startGame();
   startBtn.addEventListener('click', gameLoop);
-  // startOverBtn.addEventListener('click', () => {
-  //   toggleNoClick(playerGameboardDOM);
-  //   toggleNoClick(comGameboardDOM);
-  //   startGame();
-  // });
+
 }
