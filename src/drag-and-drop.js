@@ -58,7 +58,10 @@ export default function activateDragDrop(boardObj) {
   // elements to drop draggable on
   [...divCells].forEach((divCell) => {
     divCell.addEventListener('dragover', (e) => {
-      if (!divCell.classList.contains('prevent-drop')) {
+      if (
+        !divCell.classList.contains('prevent-drop') &&
+        !divCell.classList.contains('prevent-drop-surrounding')
+      ) {
         e.preventDefault();
       }
     });
@@ -69,6 +72,33 @@ export default function activateDragDrop(boardObj) {
       const length = parseInt(shipLength);
 
       boardObj.placeShip(coords, length);
+      if (Array.from(String(coords + length - 1), Number)[1] === 9) {
+        console.log('this is working');
+        for (let i = coords - 1; i < coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i - 10}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else {
+        for (let i = coords - 1; i <= coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i - 10}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      }
+
       displayPlacedShips(boardObj);
     });
   });
