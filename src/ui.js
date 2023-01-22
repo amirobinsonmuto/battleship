@@ -112,6 +112,19 @@ function toggleNoClick(obj) {
   obj.classList.toggle('no-click');
 }
 
+function removePreventDropClass() {
+  const preventDropSurroundingElements = document.querySelectorAll(
+    '.prevent-drop-surrounding'
+  );
+  preventDropSurroundingElements.forEach((el) => {
+    el.classList.remove('prevent-drop-surrounding');
+  });
+}
+
+// function hide(obj){
+//   obj.classList.add('hidden');
+// }
+
 export {
   generateUI,
   displayHitOrMiss,
@@ -122,6 +135,7 @@ export {
   displayStartGameBtn,
   displayPlacedShips,
   toggleNoClick,
+  removePreventDropClass,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
