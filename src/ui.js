@@ -78,7 +78,6 @@ function displayHitOrMiss(obj, playerOrCom) {
 // display the winner in a modal
 function displayWinner(winnerName) {
   modalMessage.textContent = `${winnerName} wins!`;
-  modalContent.appendChild(modalMessage);
   modal.classList.remove('hidden');
 }
 
