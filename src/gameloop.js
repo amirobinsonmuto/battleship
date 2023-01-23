@@ -6,7 +6,6 @@ import {
   displayHitOrMiss,
   displayWinner,
   removeChild,
-  hideModal,
   resetShipsToPlace,
   toggleNoClick,
   removePreventDropClass,
@@ -15,8 +14,6 @@ import {
   comGameboardDOM,
   divCells,
   startBtn,
-  startOverBtn,
-  isAllShipsPlaced,
 } from './ui';
 
 export default function game() {
@@ -26,7 +23,6 @@ export default function game() {
 
   function startGame() {
     // reset and prepare the initial UI
-    hideModal();
     removeChild(playerGameboardDOM);
     removeChild(comGameboardDOM);
     generateUI();
@@ -37,10 +33,10 @@ export default function game() {
     // create Ships
     activateDragDrop(playerGameBoard);
     comGameBoard.placeShip(21, 5);
-    comGameBoard.placeShip(31, 4);
-    comGameBoard.placeShip(42, 3);
-    comGameBoard.placeShip(84, 2);
-    comGameBoard.placeShip(55, 1);
+    // comGameBoard.placeShip(31, 4);
+    // comGameBoard.placeShip(42, 3);
+    // comGameBoard.placeShip(84, 2);
+    // comGameBoard.placeShip(55, 1);
   }
 
   function gameLoop() {

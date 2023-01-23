@@ -81,12 +81,6 @@ function displayWinner(winnerName) {
   modal.classList.remove('hidden');
 }
 
-// hide modal
-function hideModal() {
-  modal.classList.add('hidden');
-  modal.removeChild(modal.lastChild);
-}
-
 // helper function to remove all children under an element
 function removeChild(el) {
   while (el.firstChild) {
@@ -130,7 +124,6 @@ export {
   displayHitOrMiss,
   displayWinner,
   removeChild,
-  hideModal,
   resetShipsToPlace,
   displayStartGameBtn,
   displayPlacedShips,
@@ -141,7 +134,6 @@ export {
   comGameboardDOM,
   divCells,
   startBtn,
-  startOverBtn,
   isAllShipsPlaced,
   shipsToPlaceArr,
 };
