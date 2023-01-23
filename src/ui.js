@@ -7,10 +7,9 @@ const shipsToPlace = document.querySelectorAll('.ship-to-place');
 const shipsToPlaceArr = [...shipsToPlace];
 let divCells;
 const modal = document.getElementById('modal');
-const modalContent = document.getElementById('modal-content');
 const modalMessage = document.getElementById('modal-message');
 const startBtn = document.getElementById('start-button');
-const startOverBtn = document.getElementById('start-btn');
+const gameInstruction = document.getElementById('game-instruction');
 let isAllShipsPlaced;
 
 // generate the initial UI
@@ -119,6 +118,10 @@ function hide(obj) {
   obj.classList.add('hidden');
 }
 
+function unHide(obj) {
+  obj.classList.remove('hidden');
+}
+
 export {
   generateUI,
   displayHitOrMiss,
@@ -130,10 +133,12 @@ export {
   toggleNoClick,
   removePreventDropClass,
   hide,
+  unHide,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
   startBtn,
   isAllShipsPlaced,
   shipsToPlaceArr,
+  gameInstruction,
 };

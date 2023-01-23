@@ -10,10 +10,12 @@ import {
   toggleNoClick,
   removePreventDropClass,
   hide,
+  unHide,
   playerGameboardDOM,
   comGameboardDOM,
   divCells,
   startBtn,
+  gameInstruction,
 } from './ui';
 
 export default function game() {
@@ -33,10 +35,10 @@ export default function game() {
     // create Ships
     activateDragDrop(playerGameBoard);
     comGameBoard.placeShip(21, 5);
-    // comGameBoard.placeShip(31, 4);
-    // comGameBoard.placeShip(42, 3);
-    // comGameBoard.placeShip(84, 2);
-    // comGameBoard.placeShip(55, 1);
+    comGameBoard.placeShip(31, 4);
+    comGameBoard.placeShip(42, 3);
+    comGameBoard.placeShip(84, 2);
+    comGameBoard.placeShip(55, 1);
   }
 
   function gameLoop() {
@@ -44,6 +46,7 @@ export default function game() {
     toggleNoClick(comGameboardDOM);
     removePreventDropClass();
     hide(startBtn);
+    unHide(gameInstruction);
 
     const playerA = new Player('A', false, true);
     const playerCom = new Player('Com', true, false);

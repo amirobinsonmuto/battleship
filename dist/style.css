@@ -187,12 +187,15 @@ p {
 }
 
 #ship-placement-container {
-  margin-top: 50px;
   width: 300px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+}
+
+#game-instruction {
+  width: 300px;
 }
 
 .ship-to-place {
@@ -221,6 +224,7 @@ p {
   height: 300px;
   transition: background-color 0.5s ease-in-out;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 
 .divRow {
@@ -286,6 +290,21 @@ p {
 
 .hidden {
   display: none;
+}
+
+.red {
+  color: rgb(255, 0, 30);
+  font-size: 1.2rem;
+}
+
+.blue {
+  color: aqua;
+  font-size: 1.2rem;
+}
+
+.burgundy {
+  color: rgb(40, 1, 5);
+  font-size: 1.2rem;
 }
 
 /* button */
