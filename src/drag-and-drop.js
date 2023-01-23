@@ -76,7 +76,16 @@ export default function activateDragDrop(boardObj) {
 
       boardObj.placeShip(coords, length);
 
-      if (Array.from(String(coords + length - 1), Number)[1] === 9) {
+      if (
+        coords + length - 1 === 19 ||
+        coords + length - 1 === 29 ||
+        coords + length - 1 === 39 ||
+        coords + length - 1 === 49 ||
+        coords + length - 1 === 59 ||
+        coords + length - 1 === 69 ||
+        coords + length - 1 === 79 ||
+        coords + length - 1 === 89
+      ) {
         for (let i = coords - 1; i < coords + length; i++) {
           document
             .getElementById(`player${i}`)
@@ -88,8 +97,16 @@ export default function activateDragDrop(boardObj) {
             .getElementById(`player${i + 10}`)
             .classList.add('prevent-drop-surrounding');
         }
-      } else if (Array.from(String(coords), Number)[1] === 0) {
-        console.log('working');
+      } else if (
+        coords === 10 ||
+        coords === 20 ||
+        coords === 30 ||
+        coords === 40 ||
+        coords === 50 ||
+        coords === 60 ||
+        coords === 70 ||
+        coords === 80
+      ) {
         for (let i = coords; i <= coords + length; i++) {
           document
             .getElementById(`player${i}`)
@@ -99,6 +116,51 @@ export default function activateDragDrop(boardObj) {
             .classList.add('prevent-drop-surrounding');
           document
             .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else if (coords > 0 && coords + length - 1 < 9) {
+        for (let i = coords - 1; i <= coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else if (coords === 0) {
+        for (let i = coords; i <= coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else if (coords + length - 1 === 9) {
+        for (let i = coords - 1; i < coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i + 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else if (coords === 90) {
+        for (let i = coords; i <= coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i - 10}`)
+            .classList.add('prevent-drop-surrounding');
+        }
+      } else if (coords + length - 1 === 99) {
+        for (let i = coords - 1; i < coords + length; i++) {
+          document
+            .getElementById(`player${i}`)
+            .classList.add('prevent-drop-surrounding');
+          document
+            .getElementById(`player${i - 10}`)
             .classList.add('prevent-drop-surrounding');
         }
       } else {
