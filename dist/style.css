@@ -233,12 +233,13 @@ p {
   height: 30px;
 }
 
-.prevent-drop-surrounding {
+.prevent-drop-surrounding:not(.ship) {
   background-color: rgb(49, 49, 49);
+  transition: background-color 0.5s ease-in-out;
+  opacity: 0.5;
 }
 
 .ship {
-  /* box-shadow: inset 0px 0px 0px 1px rgb(10, 40, 56); */
   background-color: rgb(10, 40, 56);
   transition: background-color 0.5s ease-in-out;
 }
